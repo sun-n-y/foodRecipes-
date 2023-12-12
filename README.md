@@ -9,9 +9,9 @@
 - ### render components
 - ### index css
 
-::: warning
+---
 
-Notes
+### _Notes_
 
 - typical html pages
 
@@ -36,6 +36,6 @@ Notes
 
   - caches requests to optimize app performance
 
-    :::
+---
 
 [Back to Top](#custom_anchor_name)
