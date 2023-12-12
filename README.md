@@ -269,6 +269,58 @@ tip: create wrappers folder for styles then import into the component and wrap i
 
 tip: outlet component holds all of the pages, so style it to fix layout
 
+#### Error Page
+
+app.jsx
+
+```js
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+```
+
+error component
+
+```js
+import { Link, useRouteError } from 'react-router-dom';
+import styled from 'styled-components';
+import img from '../assets/not-found.svg';
+
+const Error = () => {
+  const error = useRouteError();
+
+  if (error.status === 404) {
+    return (
+      <Wrapper>
+        <div>
+          <img src={img} alt="not found" />
+          <h3>Ohh!</h3>
+          <p>The page you are looking for is missing</p>
+          <Link to={'/'}>Back Home</Link>
+        </div>
+      </Wrapper>
+    );
+  }
+
+  return (
+    <Wrapper>
+      <div>
+        <h3>something went wrong</h3>
+      </div>
+    </Wrapper>
+  );
+};
+
+export default Error;
+```
+
 ---
 
 [Back to Top](#custom_anchor_name)
