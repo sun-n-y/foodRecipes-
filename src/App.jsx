@@ -5,10 +5,24 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout />,
-  },
-  {
-    path: '/about',
-    element: <About />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: 'Recipe',
+        element: <Recipe />,
+      },
+      {
+        path: 'newsletter',
+        element: <NewsLetter />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+    ],
   },
 ]);
 

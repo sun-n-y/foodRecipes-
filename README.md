@@ -101,4 +101,48 @@ const HomeLayout = () => {
 export default HomeLayout;
 ```
 
+#### Nested Pages
+
+```js
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: 'Recipe',
+        element: <Recipe />,
+      },
+      {
+        path: 'newsletter',
+        element: <NewsLetter />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+    ],
+  },
+]);
+```
+
+```js
+import { Outlet } from 'react-router-dom';
+
+const HomeLayout = () => {
+  return (
+    <div>
+      <nav>navbar</nav>
+      <Outlet />
+      <footer>footer</footer>
+    </div>
+  );
+};
+export default HomeLayout;
+```
+
 [Back to Top](#custom_anchor_name)
