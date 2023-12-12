@@ -44,7 +44,7 @@
 npm i react-router-dom@6.11.2
 ```
 
-App.jsx
+#### App.jsx
 
 ```js
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -71,7 +71,7 @@ const App = () => {
 export default App;
 ```
 
-pages/index.js
+#### pages/index.js
 
 ```js
 export { default as Landing } from './Landing';
@@ -80,6 +80,25 @@ export { default as Recipe } from './Cocktail';
 export { default as Newsletter } from './Newsletter';
 export { default as HomeLayout } from './HomeLayout';
 export { default as Error } from './Error';
+```
+
+#### Link Component
+
+```js
+import { Link } from 'react-router-dom';
+
+const HomeLayout = () => {
+  return (
+    <div>
+      <h1>HomeLayout</h1>
+      {/* internal links */}
+      <Link to="/about">About Page</Link>
+      {/* external links */}
+      <a href="https://www.google.com">Google</a>
+    </div>
+  );
+};
+export default HomeLayout;
 ```
 
 [Back to Top](#custom_anchor_name)
