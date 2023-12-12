@@ -98,6 +98,7 @@ const HomeLayout = () => {
     </div>
   );
 };
+
 export default HomeLayout;
 ```
 
@@ -142,7 +143,54 @@ const HomeLayout = () => {
     </div>
   );
 };
+
 export default HomeLayout;
+```
+
+#### Nav Link Component
+
+```js
+import { Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+
+const HomeLayout = () => {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <footer>footer</footer>
+    </>
+  );
+};
+
+export default HomeLayout;
+```
+
+```js
+import { NavLink } from 'react-router-dom';
+
+const Navbar = () => {
+  return (
+    <nav>
+      <div className="nav-center">
+        <span className="logo">Recipes</span>
+        <div className="nav-links">
+          <NavLink to="/" className="nav-link">
+            Home
+          </NavLink>
+          <NavLink to="/about" className="nav-link">
+            About
+          </NavLink>
+          <NavLink to="/newsletter" className="nav-link">
+            Newsletter
+          </NavLink>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
 ```
 
 [Back to Top](#custom_anchor_name)
