@@ -52,7 +52,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <h2>home page</h2>,
+    element: <HomeLayout />,
   },
   {
     path: '/about',
@@ -69,6 +69,17 @@ const App = () => {
 };
 
 export default App;
+```
+
+pages/index.js
+
+```js
+export { default as Landing } from './Landing';
+export { default as About } from './About';
+export { default as Recipe } from './Cocktail';
+export { default as Newsletter } from './Newsletter';
+export { default as HomeLayout } from './HomeLayout';
+export { default as Error } from './Error';
 ```
 
 [Back to Top](#custom_anchor_name)
