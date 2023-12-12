@@ -9,4 +9,16 @@
 - ### render components
 - ### index css
 
+> Notes
+
+- react router dom library
+
+  - enables seamless navigation and routing in react applications
+  - create multi-page experiences
+  - handle components based on specific urls
+
+- react query library
+
+  - caches requests to optimize app performance
+
 [Back to Top](#custom_anchor_name)
