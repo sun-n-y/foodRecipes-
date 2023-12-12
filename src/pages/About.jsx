@@ -6,11 +6,11 @@ const About = () => {
       <h3>About Us</h3>
       <p>
         Introducing "Recipes" App, a cooks ultimate sidekick app that fetches
-        recipes from the famous Recipes DB API. With a flick of your finger,
-        you'll unlock a treasure trove of enchanting food recipes that'll make
-        your taste buds dance and your friends jump with joy. Get ready to shake
-        up your culinary game, one fantastical meal at a time, and let the
-        laughter and giggles flow!
+        recipes from the famous Meal DB API. With a flick of your finger, you'll
+        unlock a treasure trove of enchanting food recipes that'll make your
+        taste buds dance and your friends jump with joy. Get ready to shake up
+        your culinary game, one fantastical meal at a time, and let the laughter
+        and giggles flow!
       </p>
     </Wrapper>
   );

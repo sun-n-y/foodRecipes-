@@ -42,6 +42,14 @@
   - have logic and styles in same component (file)
   - no name collisions
 
+- loader function - fetching data
+
+  - useeffect runs after initial render, so page loads then data is fetched
+  - in react router we have a loader function, which provides data to the route element before it renders (pre-fetching)
+  - loader function must return something even null, else error
+  - common practice is to setup loader in the component thats loading the data
+  - can have multiple loaders so use alias
+
 ---
 
 ### Install
@@ -319,6 +327,52 @@ const Error = () => {
 };
 
 export default Error;
+```
+
+#### Loader
+
+import in component that loads meals
+
+```js
+import axios from 'axios';
+import { useLoaderData } from 'react-router-dom';
+
+const recipeSearchUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+
+export const loader = async () => {
+  const searchTerm = 'pizza';
+  const response = await axios.get(`${recipeSearchUrl}${searchTerm}`);
+  return { searchTerm, meals: response.data.meals };
+};
+
+const Landing = () => {
+  const { searchTerm, meals } = useLoaderData();
+  console.log(searchTerm, meals);
+  return <h1>Landing</h1>;
+};
+export default Landing;
+```
+
+import it in app.jsx
+
+```js
+import { loader as landingLoader } from './pages/Landing';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+        loader: landingLoader,
+      },
+      {
+        path: 'Recipe',
+        element: <Recipe />,
+      },
 ```
 
 ---
