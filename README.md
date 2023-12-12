@@ -5,9 +5,9 @@
 ## Concepts applied but not limited too
 
 - ### vite + react
-- ### useState
-- ### render components
 - ### index css
+- ### react router
+- ### styled components
 
 ---
 
@@ -35,6 +35,12 @@
 - react query library
 
   - caches requests to optimize app performance
+
+- styled components
+
+  - css in js
+  - have logic and styles in same component (file)
+  - no name collisions
 
 ---
 
@@ -192,5 +198,75 @@ const Navbar = () => {
 
 export default Navbar;
 ```
+
+---
+
+#### Styled Components
+
+```sh
+npm install styled-components
+```
+
+Method 1: import it, in the component that will use it
+
+```js
+import styled from 'styled-components';
+
+const StyledBtn = styled.button`
+  background-color: red;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+`;
+
+const Navbar = () => {
+  return (
+    <nav>
+      <div className="nav-center">
+        <StyledBtn>button</StyledBtn>
+        <span className="logo">Recipes</span>
+        )
+      }
+```
+
+Method 2: wrap entire component in SC, then write styles in the same file
+
+```js
+import styled from 'styled-components';
+
+const Navbar = () => {
+  return (
+    <Wrapper>
+      <div className="nav-center">
+        <span className="logo">Recipes</span>
+        <div className="nav-links">
+          <NavLink to="/" className="nav-link">
+            Home
+          </NavLink>
+          <NavLink to="/about" className="nav-link">
+            About
+          </NavLink>
+          <NavLink to="/newsletter" className="nav-link">
+            Newsletter
+          </NavLink>
+        </div>
+      </div>
+    </Wrapper>
+  );
+};
+
+const Wrapper = styled.nav`
+  background: red;
+  .logo {
+    color: blue;
+  }
+`;
+
+export default Navbar;
+```
+
+tip: create wrappers folder for styles then import into the component and wrap it
+
+---
 
 [Back to Top](#custom_anchor_name)
