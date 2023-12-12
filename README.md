@@ -267,6 +267,8 @@ export default Navbar;
 
 tip: create wrappers folder for styles then import into the component and wrap it
 
+tip: outlet component holds all of the pages, so style it to fix layout
+
 ---
 
 [Back to Top](#custom_anchor_name)

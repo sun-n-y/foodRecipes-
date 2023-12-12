@@ -5,9 +5,11 @@ const HomeLayout = () => {
   return (
     <>
       <Navbar />
-      <Outlet />
-      <footer>footer</footer>
+      <section className="page">
+        <Outlet />
+      </section>
     </>
   );
 };
+
 export default HomeLayout;

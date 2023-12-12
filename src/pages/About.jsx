@@ -18,9 +18,6 @@ const About = () => {
 export default About;
 
 const Wrapper = styled.div`
-  h3 {
-    color: rebeccapurple;
-  }
   p {
     line-height: 2;
     color: var(--grey-500);
