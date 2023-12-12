@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 const recipeSearchUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
 export const loader = async () => {
-  const searchTerm = 'pizza';
+  const searchTerm = '';
   const response = await axios.get(`${recipeSearchUrl}${searchTerm}`);
   return { searchTerm, meals: response.data.meals };
 };
