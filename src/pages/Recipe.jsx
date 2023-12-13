@@ -46,7 +46,7 @@ const Recipe = () => {
       </header>
       <div className="meal">
         <img src={image} alt={name} className="img" />
-        <div className="recipe-info">
+        <div className="meal-info">
           <p>
             <span className="meal-data">name :</span>
             {name}
@@ -81,4 +81,51 @@ const Recipe = () => {
 };
 export default Recipe;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+    .btn {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .img {
+    border-radius: var(--borderRadius);
+  }
+
+  .meal-info {
+    padding-top: 2rem;
+  }
+
+  .meal p {
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 2;
+    margin-bottom: 1rem;
+  }
+
+  span {
+    margin-right: 1rem;
+  }
+
+  .meal-data {
+    margin-right: auto.5rem;
+    background: var(--primary-300);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--borderRadius);
+    color: var(--primary-700);
+    letter-spacing: var(--letterSpacing);
+  }
+
+  @media (min-width: 992px) {
+    .meal {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 3rem;
+    }
+    .meal-info {
+      padding-top: 0;
+    }
+  }
+`;
