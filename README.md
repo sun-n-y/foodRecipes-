@@ -40,6 +40,7 @@
     - loader function must return something even null, else error
     - common practice is to setup loader in the component thats loading the data
     - can have multiple loaders so use alias
+    - loader fx has an object with useful data like params, request
   - useNavigation hook
     - provides useful info of what is happening the the app, like the state (loading, submitting, etc.)
     - setup where the outlet is
