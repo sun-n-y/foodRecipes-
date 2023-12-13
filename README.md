@@ -34,6 +34,8 @@
     - ?
   - outlet
     - ?
+  - navigate
+    - ?
   - loader function - fetching data
     - useEffect runs after initial render, so page loads then data is fetched
     - in react router we have a loader function, which provides data to the route element before it renders (pre-fetching)

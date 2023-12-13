@@ -1,16 +1,21 @@
 import axios from 'axios';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, Navigate, useLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
 
 const singleRecipeUrl = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
 
 export const loader = async ({ params }) => {
-  const response = await axios.get(`${singleRecipeUrl}${params.id}`);
-  return { id: params.id, recipeData: response.data.meals[0] };
+  const { data } = await axios.get(`${singleRecipeUrl}${params.id}`);
+  return { id: params.id, data };
 };
 
 const Recipe = () => {
-  const { id, recipeData } = useLoaderData();
+  const { id, data } = useLoaderData();
+
+  if (!data?.meals?.[0]) return <Navigate to="/" />;
+
+  const recipeData = data.meals[0];
+
   const {
     strMeal: name,
     strMealThumb: image,
