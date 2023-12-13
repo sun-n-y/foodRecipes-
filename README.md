@@ -26,29 +26,34 @@
   - Ex. **[My Portfolio](https://sunnykp-portfolio.netlify.app/)**
 
 - react router dom library
-
   - to create multi-page experiences within SPA
   - facilitates navigation (client side routing) in between components
   - manages rendering of specific content based on current url
   - different components and sections can be accessed and updated dynamically
-
+  - link
+    - ?
+  - outlet
+    - ?
+  - loader function - fetching data
+    - useEffect runs after initial render, so page loads then data is fetched
+    - in react router we have a loader function, which provides data to the route element before it renders (pre-fetching)
+    - loader function must return something even null, else error
+    - common practice is to setup loader in the component thats loading the data
+    - can have multiple loaders so use alias
+  - useNavigation hook
+    - provides useful info of what is happening the the app, like the state (loading, submitting, etc.)
+    - setup where the outlet is
+  - context prop is already set up with react router dom
+    - we can pass data from parent(where the outlet is) to the lowest component
+    - useOutletContext in the child component
 - react query library
 
   - caches requests to optimize app performance
 
 - styled components
-
   - css in js
   - have logic and styles in same component (file)
   - no name collisions
-
-- loader function - fetching data
-
-  - useeffect runs after initial render, so page loads then data is fetched
-  - in react router we have a loader function, which provides data to the route element before it renders (pre-fetching)
-  - loader function must return something even null, else error
-  - common practice is to setup loader in the component thats loading the data
-  - can have multiple loaders so use alias
 
 ---
 
