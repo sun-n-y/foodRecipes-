@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         loader: landingLoader,
       },
       {
-        path: 'Recipe',
+        path: 'recipe/:id',
         element: <Recipe />,
       },
       {

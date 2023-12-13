@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useLoaderData } from 'react-router-dom';
+import RecipeList from '../components/RecipeList';
 
 const recipeSearchUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
@@ -11,7 +12,12 @@ export const loader = async () => {
 
 const Landing = () => {
   const { searchTerm, meals } = useLoaderData();
-  console.log(searchTerm, meals);
-  return <h1>Landing</h1>;
+
+  return (
+    <>
+      <RecipeList meals={meals} />
+    </>
+  );
 };
+
 export default Landing;
