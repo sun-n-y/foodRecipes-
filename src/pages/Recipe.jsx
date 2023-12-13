@@ -20,6 +20,17 @@ const Recipe = () => {
     strTags: tags,
   } = recipeData;
 
+  const ingredients = Object.keys(recipeData)
+    .filter((key) => {
+      if (key.startsWith('strIngredient') && recipeData[key] !== '') {
+        return key;
+      }
+    })
+    .map((item) => {
+      return recipeData[item];
+    })
+    .join(', ');
+
   return (
     <Wrapper>
       <header>
@@ -50,6 +61,10 @@ const Recipe = () => {
             </p>
           ) : null}
 
+          <p>
+            <span className="meal-data">ingredients :</span>
+            {ingredients}
+          </p>
           <p>
             <span className="meal-data">instructions :</span>
             {instruction}
