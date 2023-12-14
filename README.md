@@ -8,6 +8,8 @@
 - ### index css
 - ### react router
 - ### styled components
+- ### form submission
+- ### react query
 
 ---
 
@@ -32,6 +34,8 @@
     - ?
   - navigate
     - ?
+  - redirect
+    - navigate user to different page, to be used in actions and loaders.
   - loader function - fetching data
     - useEffect runs after initial render, so page loads then data is fetched
     - in react router we have a loader function, which provides data to the route element before it renders (pre-fetching)
@@ -50,10 +54,11 @@
       - with action attr, means where to send info to
       - with method attr = post, means created resource on server
       - vite server doesn't know about post request
-    - import form component and use action,
+    - to access data import form component and use action,
       - similar to loader, but difference is loader handles data before page loads, action is after
       - form data api to collect values, so name attr is needed in input, server will look for this value
       - upon submit we will have access to form data in the action
+    - once you have data make post request to api endpoint
 - react query library
   - caches requests to optimize app performance
 - styled components
@@ -411,13 +416,18 @@ import { action as newsLetterAction } from './pages/NewsLetter';
 ```
 
 ```js
-import { Form } from 'react-router-dom';
+import axios from 'axios';
+import { Form, redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+const newLetterUrl = 'https://www.course-api.com/cocktails-newsletter';
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  console.log(data);
-  return null;
+  const response = await axios.post(newLetterUrl, data);
+  toast.success(response.data.msg);
+  return redirect('/');
 };
 
 const NewsLetter = () => {
