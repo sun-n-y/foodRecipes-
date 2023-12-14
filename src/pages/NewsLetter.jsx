@@ -20,7 +20,6 @@ export const action = async ({ request }) => {
 
 const NewsLetter = () => {
   const navigation = useNavigation();
-  console.log(navigation);
 
   return (
     <Form className="form" method="POST">

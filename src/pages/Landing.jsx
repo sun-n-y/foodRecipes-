@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useLoaderData } from 'react-router-dom';
 import RecipeList from '../components/RecipeList';
+import SearchForm from '../components/SearchForm';
 
 const recipeSearchUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
@@ -15,6 +16,7 @@ const Landing = () => {
 
   return (
     <>
+      <SearchForm searchTerm={searchTerm} />
       <RecipeList meals={meals} />
     </>
   );
