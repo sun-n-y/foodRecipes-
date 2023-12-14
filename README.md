@@ -420,7 +420,7 @@ import { action as newsLetterAction } from './pages/NewsLetter';
 
 ```js
 import axios from 'axios';
-import { Form, redirect } from 'react-router-dom';
+import { Form, redirect, useNavigation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const newLetterUrl = 'https://www.course-api.com/cocktails-newsletter';
@@ -440,6 +440,9 @@ export const action = async ({ request }) => {
 };
 
 const NewsLetter = () => {
+  const navigation = useNavigation();
+  console.log(navigation);
+
   return (
     <Form className="form" method="POST">
       <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -456,9 +459,17 @@ const NewsLetter = () => {
           name="name"
           id="name"
           required
-          defaultValue="tim"
         />
       </div>
+      <button
+        type="submit"
+        className="btn btn-block"
+        style={{ marginTop: '.5rem' }}
+        disabled={navigation.state === 'submitting'}
+      >
+        {navigation.state === 'submitting' ? 'submitting' : 'submit'}
+      </button>
+    </Form>
 ```
 
 ---
