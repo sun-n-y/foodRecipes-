@@ -59,6 +59,9 @@
       - form data api to collect values, so name attr is needed in input, server will look for this value
       - upon submit we will have access to form data in the action
     - once you have data make post request to api endpoint
+  - error handling with actions and loaders
+    - when loading data and theres an error it makes sense to use single page error or global error
+    - but when submitting form theres no need for error pages, use toasts
 - react query library
   - caches requests to optimize app performance
 - styled components
@@ -425,9 +428,15 @@ const newLetterUrl = 'https://www.course-api.com/cocktails-newsletter';
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  const response = await axios.post(newLetterUrl, data);
-  toast.success(response.data.msg);
-  return redirect('/');
+  try {
+    const response = await axios.post(newLetterUrl, data);
+    toast.success(response.data.msg);
+    console.log(response);
+    return redirect('/');
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
 };
 
 const NewsLetter = () => {
@@ -446,6 +455,7 @@ const NewsLetter = () => {
           className="form-input"
           name="name"
           id="name"
+          required
           defaultValue="tim"
         />
       </div>
