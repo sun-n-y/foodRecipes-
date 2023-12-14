@@ -10,6 +10,7 @@ import {
 } from './pages';
 import { loader as landingLoader } from './pages/Landing';
 import { loader as singleRecipeLoader } from './pages/Recipe';
+import { action as newsLetterAction } from './pages/NewsLetter';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       {
         path: 'newsletter',
         element: <NewsLetter />,
+        action: newsLetterAction,
       },
       {
         path: 'about',

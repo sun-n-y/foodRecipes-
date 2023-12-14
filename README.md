@@ -45,6 +45,15 @@
   - context prop is already set up with react router dom
     - we can pass data from parent(where the outlet is) to the lowest component
     - useOutletContext in the child component
+  - form submissions
+    - default behavior of html form w/o method and action, a get request is sent and values are appended to same url
+      - with action attr, means where to send info to
+      - with method attr = post, means created resource on server
+      - vite server doesn't know about post request
+    - import form component and use action,
+      - similar to loader, but difference is loader handles data before page loads, action is after
+      - form data api to collect values, so name attr is needed in input, server will look for this value
+      - upon submit we will have access to form data in the action
 - react query library
   - caches requests to optimize app performance
 - styled components
@@ -388,6 +397,48 @@ const SinglePageError = () => {
 };
 
 export default SinglePageError;
+```
+
+#### Form
+
+```js
+import { action as newsLetterAction } from './pages/NewsLetter';
+
+        path: 'newsletter',
+        element: <NewsLetter />,
+        action: newsLetterAction,
+      },
+```
+
+```js
+import { Form } from 'react-router-dom';
+
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  return null;
+};
+
+const NewsLetter = () => {
+  return (
+    <Form className="form" method="POST">
+      <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        our newsletter
+      </h4>
+      {/* name */}
+      <div className="form-row">
+        <label htmlFor="name" className="form-label">
+          first name
+        </label>
+        <input
+          type="text"
+          className="form-input"
+          name="name"
+          id="name"
+          defaultValue="tim"
+        />
+      </div>
 ```
 
 ---
