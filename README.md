@@ -65,7 +65,7 @@
 - react query library
   - caches requests to optimize app performance, make fewer requests, faster data
   - QueryClient
-  - caches requests
+    - instance of react rq client which manages and caches the data fetched by queries
   - stale time
     - how long a query is valid globally
   - QueryClientProvider

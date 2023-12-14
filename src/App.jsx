@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         path: 'recipe/:id',
         errorElement: <SinglePageError />,
         element: <Recipe />,
-        loader: singleRecipeLoader,
+        loader: singleRecipeLoader(queryClient),
       },
       {
         path: 'newsletter',
