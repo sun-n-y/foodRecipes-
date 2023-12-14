@@ -141,7 +141,7 @@ Error generating stack: `+o.message+`
     color: var(--grey-500);
     margin-top: 2rem;
   }
-`,bS="/foodRecipes-/assets/not-found-076062c6.svg",$S=()=>{const e=Jc();return console.log(e),e.status===404?j(ch,{children:_e("div",{children:[j("img",{src:bS,alt:"not found"}),j("h3",{children:"Ohh!"}),j("p",{children:"The page you are looking for is missing"}),j(fs,{to:"/",children:"Back Home"})]})}):j(ch,{children:j("div",{children:j("h3",{children:"something went wrong"})})})},ch=Sr.div`
+`,bS="/assets/not-found-076062c6.svg",$S=()=>{const e=Jc();return console.log(e),e.status===404?j(ch,{children:_e("div",{children:[j("img",{src:bS,alt:"not found"}),j("h3",{children:"Ohh!"}),j("p",{children:"The page you are looking for is missing"}),j(fs,{to:"/",children:"Back Home"})]})}):j(ch,{children:j("div",{children:j("h3",{children:"something went wrong"})})})},ch=Sr.div`
   min-height: 100vh;
   text-align: center;
   display: grid;
