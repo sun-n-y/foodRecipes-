@@ -5,7 +5,6 @@
 ## Concepts applied but not limited too
 
 - ### vite + react
-- ### index css
 - ### react router
 - ### styled components
 - ### form submission
@@ -29,11 +28,11 @@
   - manages rendering of specific content based on current url
   - different components and sections can be accessed and updated dynamically
   - link
-    - ?
+    - navigate within app
   - outlet
-    - ?
+    - where all of our pages are
   - navigate
-    - ?
+    - navigate user to different page
   - redirect
     - navigate user to different page, to be used in actions and loaders.
   - loader function - fetching data
