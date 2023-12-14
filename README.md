@@ -63,7 +63,15 @@
     - when loading data and theres an error it makes sense to use single page error or global error
     - but when submitting form theres no need for error pages, use toasts
 - react query library
-  - caches requests to optimize app performance
+  - caches requests to optimize app performance, make fewer requests, faster data
+  - QueryClient
+  - caches requests
+  - stale time
+    - how long a query is valid globally
+  - QueryClientProvider
+  - ReactQueryDevTools
+  - ensureQueryData
+    - method checks if data is in the cache, if yes? its provided in the component useQuery : it is fetched in loader then provided in component useQUery
 - styled components
   - css in js
   - have logic and styles in same component (file)
