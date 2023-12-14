@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const SearchForm = ({ searchTerm }) => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
-  console.log(searchTerm);
 
   return (
     <Wrapper>
@@ -13,7 +12,7 @@ const SearchForm = ({ searchTerm }) => {
           type="search"
           name="search"
           className="form-input"
-          defaultValue="pizza"
+          defaultValue={searchTerm}
         />
         <button type="submit" className="btn" disabled={isSubmitting}>
           {isSubmitting ? 'searching...' : 'search'}
